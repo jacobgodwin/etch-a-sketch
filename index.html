@@ -8,6 +8,28 @@
     <title>Document</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      const body = document.querySelector("body");
+      const container = document.createElement("div");
+
+      let numBoxes = 32;
+      let dimensions = numBoxes / 2 + "px";
+
+      container.classList.add("container");
+
+      body.appendChild(container);
+
+      function createBoxes() {
+        for (let i = 0; i < numBoxes; i++) {
+          const box = document.createElement("div");
+          box.classList.add("box");
+          box.style.width = dimensions;
+          box.style.height = dimensions;
+          container.appendChild(box);
+        }
+      }
+
+      createBoxes();
+    </script>
   </body>
 </html>

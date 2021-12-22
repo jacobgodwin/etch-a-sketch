@@ -8,28 +8,62 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="nav">
+      <div>Etch-A-Sketch</div>
+      <div id="button">
+        <button>Reset</button>
+      </div>
+    </div>
     <script>
       const body = document.querySelector("body");
       const container = document.createElement("div");
 
-      let numBoxes = 32;
-      let dimensions = numBoxes / 2 + "px";
+      function getGridSize() {
+        num = parseInt(
+          window.prompt(
+            "What size grid would you like? (Please keep it below 100)"
+          ),
+          10
+        );
+        while (num >= 100) {
+          num = parseInt(
+            window.prompt("Please keep the number below 100."),
+            10
+          );
+        }
+        return num;
+      }
+
+      let gridSize = getGridSize();
+      let numBoxes = gridSize * gridSize;
+      let dimensions = 960 / gridSize - 2 + "px";
 
       container.classList.add("container");
 
       body.appendChild(container);
 
-      function createBoxes() {
+      function createGrid() {
         for (let i = 0; i < numBoxes; i++) {
-          const box = document.createElement("div");
-          box.classList.add("box");
+          let box = document.createElement("div");
+          box.classList.add("grid");
           box.style.width = dimensions;
-          box.style.height = dimensions;
           container.appendChild(box);
         }
       }
 
-      createBoxes();
+      createGrid();
+
+      let hoverTest = document.getElementsByClassName("grid");
+
+      for (let i = 0; i < hoverTest.length; i++) {
+        hoverTest[i].addEventListener(
+          "mouseover",
+          function () {
+            hoverTest[i].style.backgroundColor = "red";
+          },
+          false
+        );
+      }
     </script>
   </body>
 </html>

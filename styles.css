@@ -2,8 +2,21 @@
   display: flex;
   flex-wrap: wrap;
   border: 1px solid red;
+  width: 960px;
+  height: 960px;
 }
 
-.box {
+.grid {
   border: 1px solid blue;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
 }

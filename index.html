@@ -10,13 +10,23 @@
   <body>
     <div class="nav">
       <div>Etch-A-Sketch</div>
-      <div id="button">
-        <button>Reset</button>
+      <div>
+        <button id="clearBtn">Clear</button>
       </div>
     </div>
+    <div id="container"></div>
     <script>
       const body = document.querySelector("body");
-      const container = document.createElement("div");
+      const canvas = document.getElementById("container");
+      const clearButton = document.getElementById("clearBtn");
+
+      function resetGrid() {
+        for (let i = 0; i < hoverTest.length; i++) {
+          hoverTest[i].style.backgroundColor = "white";
+        }
+      }
+
+      clearButton.addEventListener("click", resetGrid);
 
       function getGridSize() {
         num = parseInt(
@@ -36,18 +46,20 @@
 
       let gridSize = getGridSize();
       let numBoxes = gridSize * gridSize;
-      let dimensions = 960 / gridSize - 2 + "px";
-
-      container.classList.add("container");
-
-      body.appendChild(container);
+      let dimensions = 600 / gridSize + "px";
 
       function createGrid() {
-        for (let i = 0; i < numBoxes; i++) {
-          let box = document.createElement("div");
-          box.classList.add("grid");
-          box.style.width = dimensions;
-          container.appendChild(box);
+        for (let i = 0; i < gridSize; i++) {
+          let gridRow = document.createElement("div");
+          gridRow.classList.add("gridRow");
+          canvas.appendChild(gridRow);
+          for (let i = 0; i < gridSize; i++) {
+            let box = document.createElement("div");
+            box.classList.add("grid");
+            box.style.width = dimensions;
+            box.style.height = dimensions;
+            gridRow.appendChild(box);
+          }
         }
       }
 

@@ -1,2 +1,2 @@
-# etch-a-sketch
+# Etch-A-Sketch
 Etch-A-Sketch Project

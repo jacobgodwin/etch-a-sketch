@@ -5,77 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
-    <div class="nav">
-      <div>Etch-A-Sketch</div>
-      <div>
-        <button id="clearBtn">Clear</button>
+    <header>Etch-A-Sketch</header>
+    <div id="container">
+      <div id="sidebar">
+        <div>Canvas Grid Size</div>
+        <div id="sliderContainer">
+          <input
+            type="range"
+            min="16"
+            value="16"
+            max="96"
+            step="16"
+            class="slider"
+            id="myRange"
+          />
+        </div>
+        <div id="sliderOutput"></div>
       </div>
+      <div id="case">
+        <div id="canvas"></div>
+        <div id="controls">
+          <div class="knob"></div>
+          <div>
+            <button id="clearBtn">Erase</button>
+          </div>
+          <div class="knob"></div>
+        </div>
+      </div>
+      <div id="spacer"></div>
     </div>
-    <div id="container"></div>
-    <script>
-      const body = document.querySelector("body");
-      const canvas = document.getElementById("container");
-      const clearButton = document.getElementById("clearBtn");
-
-      function resetGrid() {
-        for (let i = 0; i < hoverTest.length; i++) {
-          hoverTest[i].style.backgroundColor = "white";
-        }
-      }
-
-      clearButton.addEventListener("click", resetGrid);
-
-      function getGridSize() {
-        num = parseInt(
-          window.prompt(
-            "What size grid would you like? (Please keep it below 100)"
-          ),
-          10
-        );
-        while (num >= 100) {
-          num = parseInt(
-            window.prompt("Please keep the number below 100."),
-            10
-          );
-        }
-        return num;
-      }
-
-      let gridSize = getGridSize();
-      let numBoxes = gridSize * gridSize;
-      let dimensions = 600 / gridSize + "px";
-
-      function createGrid() {
-        for (let i = 0; i < gridSize; i++) {
-          let gridRow = document.createElement("div");
-          gridRow.classList.add("gridRow");
-          canvas.appendChild(gridRow);
-          for (let i = 0; i < gridSize; i++) {
-            let box = document.createElement("div");
-            box.classList.add("grid");
-            box.style.width = dimensions;
-            box.style.height = dimensions;
-            gridRow.appendChild(box);
-          }
-        }
-      }
-
-      createGrid();
-
-      let hoverTest = document.getElementsByClassName("grid");
-
-      for (let i = 0; i < hoverTest.length; i++) {
-        hoverTest[i].addEventListener(
-          "mouseover",
-          function () {
-            hoverTest[i].style.backgroundColor = "red";
-          },
-          false
-        );
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -30,6 +30,26 @@
           />
         </div>
         <div id="sliderOutput"></div>
+        <div id="styleSelector">
+          <div class="radioButton">
+            <input
+              type="radio"
+              id="styleNormal"
+              name="style"
+              value="normal"
+              checked
+            />
+            <label for="normal">Normal</label>
+          </div>
+          <div class="radioButton">
+            <input type="radio" id="styleRgb" name="style" value="rgb" />
+            <label for="rgb">RGB</label>
+          </div>
+          <div class="radioButton">
+            <input type="radio" id="styleShade" name="style" value="shade" />
+            <label for="shade">Shade</label>
+          </div>
+        </div>
       </div>
       <div id="case">
         <div id="canvas"></div>
@@ -43,6 +63,14 @@
       </div>
       <div id="spacer"></div>
     </div>
+    <footer>
+      <div>&copy;</div>
+      <div>
+        <a href="https://github.com/jacobgodwin/etch-a-sketch" target="_blank"
+          >Jacob Godwin</a
+        >
+      </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

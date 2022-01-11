@@ -32,24 +32,27 @@
         </div>
         <div id="sliderOutput"></div>
         <div id="styleSelector">
-          <div class="radioButton">
+          <label class="radioButton" for="normal"
+            >Normal
             <input
               type="radio"
-              id="styleNormal"
+              id="normal"
               name="style"
               value="normal"
-              checked
+              checked="checked"
             />
-            <label for="normal">Normal</label>
-          </div>
-          <div class="radioButton">
-            <input type="radio" id="styleRgb" name="style" value="rgb" />
-            <label for="rgb">RGB</label>
-          </div>
-          <div class="radioButton">
-            <input type="radio" id="styleShade" name="style" value="shade" />
-            <label for="shade">Shade</label>
-          </div>
+            <span class="newButton"></span>
+          </label>
+          <label class="radioButton" for="rgb"
+            >RGB
+            <input type="radio" id="rgb" name="style" value="rgb" />
+            <span class="newButton"></span>
+          </label>
+          <label class="radioButton" for="shade"
+            >Shade
+            <input type="radio" id="shade" name="style" value="shade" />
+            <span class="newButton"></span>
+          </label>
         </div>
       </div>
       <div id="case">
